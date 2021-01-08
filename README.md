@@ -25,8 +25,8 @@ Usage:
 * Typescript
 * [vue-router](https://router.vuejs.org) -- page routing
 * [vuex](https://vuex.vuejs.org) -- flux architecture
-* [axios](https://github.com/axios/axios) -- network requests
 * [vuex-persistedstate](https://github.com/robinvdvleuten/vuex-persistedstate) -- persisting vuex state after reloading a page
+* [axios](https://github.com/axios/axios) -- network requests
 * [vue-svg-logo](https://github.com/visualfanatic/vue-svg-loader) -- svg icons as Vue components
 
 
@@ -61,7 +61,7 @@ Main idea is:
 * user goes to `/`
 * `/` redirects to `/login` with basic login form (`view/views/auth/LoginPage.vue` component)
 * "Sign in" button press redirects to `/authenticated` (`view/views/auth/AuthenticatedPage.vue`) that 
-  does some initial actions (usually Store dispatches and redirects to `/main` (`view/views/MainPage.vue`)
+  does some initial actions (usually Store dispatches) and redirects to `/main` (`view/views/MainPage.vue`)
 * default axios instance has interceptor on `401` and `403` codes that redirects user to `/login` when they are received
 * every time user goes to `/login`, GET request is made to `${BASE_URL}/ping` and if it is successful, then it gets redirected
   to `/authenticated` (in case user got to this page by himself, from browser)
