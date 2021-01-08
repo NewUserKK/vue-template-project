@@ -13,7 +13,7 @@ export const axiosInstance = axios.create({
 axiosInstance.interceptors.response.use(
   response => response,
   async e => {
-    if (e.response.status === 401) {
+    if (e.response.status === 401 || e.response.status === 403) {
       await router.push({ path: "login" });
     }
     return Promise.reject(e);
