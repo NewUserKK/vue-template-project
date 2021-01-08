@@ -4,7 +4,9 @@ New-project template for Vue.js
 ## Usage
 ```
 git clone https://github.com/NewUserKK/vue-template-project
-mv vue-template-project [your project name]
+mv vue-template-project my-project
+cd my-project
+npm install
 npm run serve
 ```
 Don't forget to change project name in `package.json`!
