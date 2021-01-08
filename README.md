@@ -1,12 +1,31 @@
 # vue-template-project
 New-project template for Vue.js
 
+## Usage
+```
+git clone https://github.com/NewUserKK/vue-template-project
+mv vue-template-project [your project name]
+npm run serve
+```
+Don't forget to change project name in `package.json`!
+
+
+## Packing and building
+`pack.sh` script is designed to help pack static resources and move them to static server folder.
+
+Usage:
+`pack.sh [dev/prod] [path-to-server]`
+* 1st argument: build type. Default: dev
+* 2nd argument: path to root server folder. Default: none, modify script with your path
+
+
 ## Used libraries and dependencies
 * Typescript
 * vue-router -- page routing
 * vuex -- flux architecture
 * axios -- network requests
 * vuex-persistedstate -- persisting vuex state after reloading a page
+
 
 ## Utils
 * data/common
@@ -44,8 +63,10 @@ Main idea is:
 * every time user goes to `/login`, GET request is made to `${BASE_URL}/ping` and if it is successful, then it gets redirected
   to `/authenticated` (in case user got to this page by himself, from browser)
 
+
 ## Linters
 There are certain modifications to Prettier and ESLint rules that can be observed in `.eslintrc.js`
+
 
 ## IDEa notes
 ### Prettier
