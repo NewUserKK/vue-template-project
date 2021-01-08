@@ -23,10 +23,11 @@ Usage:
 
 ## Used libraries and dependencies
 * Typescript
-* vue-router -- page routing
-* vuex -- flux architecture
-* axios -- network requests
-* vuex-persistedstate -- persisting vuex state after reloading a page
+* [vue-router](https://router.vuejs.org) -- page routing
+* [vuex](https://vuex.vuejs.org) -- flux architecture
+* [axios](https://github.com/axios/axios) -- network requests
+* [vuex-persistedstate](https://github.com/robinvdvleuten/vuex-persistedstate) -- persisting vuex state after reloading a page
+* [vue-svg-logo](https://github.com/visualfanatic/vue-svg-loader) -- svg icons as Vue components
 
 
 ## Utils
