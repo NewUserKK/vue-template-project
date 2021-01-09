@@ -11,6 +11,13 @@ npm run serve
 ```
 Don't forget to change project name in `package.json`!
 
+### Tests
+Template contains sample Mocha and Cypress tests.
+
+```
+npm run test:unit
+npm run test:e2e
+```
 
 ## Packing and building
 `pack.sh` script is designed to help pack static resources and move them to static server folder.
@@ -28,11 +35,12 @@ Usage:
 * [vuex-persistedstate](https://github.com/robinvdvleuten/vuex-persistedstate) -- persisting vuex state after reloading a page
 * [axios](https://github.com/axios/axios) -- network requests
 * [vue-svg-logo](https://github.com/visualfanatic/vue-svg-loader) -- svg icons as Vue components
+* Mocha + Chai + Cypress -- testing
 
 
 ## Utils
-* data/common
-  * Either.ts (and Result.ts): `Either` type implementation.
+* `domain/common`
+  * `Either.ts` (and `Result.ts`): `Either` type implementation.
 
     File also has structure `EitherMatcher` to simplify work with `Either`. Common usage:
     ```
@@ -44,7 +52,7 @@ Usage:
     Callbacks are called immediatelly so `match()` function call is not necessary (for example, if result type is `void`)
     
     `Result` is just typealias for Either<Error, T>
-* service-utils: util-functions to reduce boilerplate in `axios` calls. Basically just checks if response was successful
+* `data/common/service-utils.ts`: util functions to reduce boilerplate in `axios` calls. Basically just checks if response was successful
   and returns `Either.Right` if it was or `Either.Left` if it wasn't.
   
   Common usage:

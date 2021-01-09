@@ -3,7 +3,7 @@ import axios from "axios";
 import { BASE_URL } from "@/axios";
 import VueRouter, { RouteConfig } from "vue-router";
 
-import AuthScreen from "@/view/views/auth/LoginPage.vue";
+import LoginPage from "@/view/views/auth/LoginPage.vue";
 import AuthenticatedPage from "@/view/views/auth/AuthenticatedPage.vue";
 import ComponentsTestPage from "@/view/views/dev/ComponentsTestPage.vue";
 import MainPage from "@/view/views/MainPage.vue";
@@ -20,7 +20,7 @@ routes = [
 
   {
     path: "/login",
-    component: AuthScreen,
+    component: LoginPage,
     beforeEnter(to, from, next) {
       /*  important! here we use default axios instance without interceptor
           to avoid infinite recursive logins
