@@ -75,7 +75,7 @@ There are certain modifications to Prettier and ESLint rules that can be observe
 ### Prettier
 This project is designed to work with Prettier so Prettier plugin should be installed. After that, format file with `Ctrl+Alt+Shift+P` instead of default `Ctrl+Alt+L`
 
-### Template
+### Vue class-style component template
 You can add following file template to create new Vue components from context menu easily:
 
 ```
@@ -95,4 +95,34 @@ export default class ${NAME} extends Vue {
 <style scoped>
 
 </style>
+```
+
+### Vue Store template
+Template for creating Vue stores.
+```
+export class ${Prefix}State {
+  constructor(
+
+  ) {}
+}
+
+export enum ${Prefix}Mutation {
+}
+
+export enum ${Prefix}Action {
+
+}
+
+const ${Prefix}Store = {
+  state: new ${Prefix}State(),
+
+  mutations: {
+
+  },
+
+  actions: {
+  }
+};
+
+export default ${Prefix}Store;
 ```
