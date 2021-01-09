@@ -121,6 +121,7 @@ const ${Prefix}Store = {
   },
 
   actions: {
+  
   }
 };
 
