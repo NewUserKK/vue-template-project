@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
-import Result from "@/domain/common/Result";
-import { leftOf, rightOf } from "@/domain/common/Either";
+import Result from "@/common/Result";
+import { leftOf, rightOf } from "@/common/Either";
 
 export async function handle<ResultType, ResponseType = object | any[]>(
   call: Promise<AxiosResponse<ResponseType>>,
@@ -13,7 +13,7 @@ export async function handle<ResultType, ResponseType = object | any[]>(
     const result = await call;
     return onSuccess(result.data);
   } catch (e) {
-    return onFailure(e);
+    return onFailure(e as Error);
   }
 }
 
@@ -28,7 +28,7 @@ export async function handleAsync<ResultType, ResponseType = object | any[]>(
     const result = await call;
     return await onSuccess(result.data);
   } catch (e) {
-    return await onFailure(e);
+    return await onFailure(e as Error);
   }
 }
 

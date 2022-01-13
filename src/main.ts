@@ -4,8 +4,8 @@ import App from "./App.vue";
 import VueAxios from "vue-axios";
 
 import "./registerServiceWorker";
-import router from "./view/router/routes";
-import store from "./domain/store/Store";
+import router from "@/view/router/routes";
+import store from "@/store/Store";
 import { axiosInstance } from "@/axios";
 
 Vue.config.productionTip = false;
@@ -26,4 +26,4 @@ const app = new Vue({
   render: h => h(App)
 });
 
-app.$mount("#app");
+app.$mount?.("#app");

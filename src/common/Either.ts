@@ -2,6 +2,22 @@ export abstract class Either<A, B> {
   matcher<R>(): EitherMatcher<A, B, R> {
     return new EitherMatcher(this);
   }
+
+  asLeft(): Left<A> {
+    return (this as unknown) as Left<A>;
+  }
+
+  isLeft(): boolean {
+    return this instanceof Left
+  }
+
+  asRight(): Right<B> {
+    return (this as unknown) as Right<B>;
+  }
+
+  isRight(): boolean {
+    return this instanceof Right
+  }
 }
 
 export class Left<A> extends Either<A, never> {
@@ -9,6 +25,7 @@ export class Left<A> extends Either<A, never> {
     super();
   }
 }
+
 export class Right<B> extends Either<never, B> {
   constructor(readonly value: B) {
     super();
@@ -18,6 +35,7 @@ export class Right<B> extends Either<never, B> {
 export function rightOf<B>(value: B): Either<never, B> {
   return new Right(value);
 }
+
 export function leftOf<A>(value: A): Either<A, never> {
   return new Left(value);
 }
@@ -26,7 +44,8 @@ class EitherMatcher<A, B, R> {
   constructor(
     private readonly either: Either<A, B>,
     private result: R | null = null
-  ) {}
+  ) {
+  }
 
   onLeft(block: (value: A) => R): EitherMatcher<A, B, R> {
     if (this.either instanceof Left) {
@@ -34,6 +53,14 @@ class EitherMatcher<A, B, R> {
     }
 
     return this;
+  }
+
+  selfOnLeft(): EitherMatcher<A, B, R> {
+    if (this.either instanceof Left) {
+      this.result = this.either.value as R;
+    }
+
+    return this
   }
 
   throwOnLeft(): EitherMatcher<A, B, R> {
@@ -54,7 +81,7 @@ class EitherMatcher<A, B, R> {
 
   selfOnRight(): EitherMatcher<A, B, R> {
     if (this.either instanceof Right) {
-      this.result = this.either.value;
+      this.result = this.either.value as R;
     }
 
     return this;
@@ -65,7 +92,7 @@ class EitherMatcher<A, B, R> {
       return this.result;
     }
 
-    throw "Unmatched result";
+    throw new Error("Unmatched result");
   }
 }
 
